@@ -1,7 +1,32 @@
+"use client";
 import Image from "next/image";
+import type { AppType } from "./api/[[...route]]/route";
 import { ModeToggle } from "@/components/ui/theme-toggle";
+import { hc } from "hono/client";
+import React from "react";
+
+const client = hc<AppType>("/");
 
 export default function Home() {
+  const [data, setData] = React.useState<any>(null);
+
+  React.useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await client.api.hello.$get({
+          query: {
+            name: "world",
+          },
+        });
+        const json = await response.json();
+        setData(json);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+    fetchData();
+  }, []);
+
   return (
     <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
       <h1>Home</h1>
