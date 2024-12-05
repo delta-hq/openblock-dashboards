@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TRPCProvider } from "./TRPCProvider";
+import { TRPCProvider } from "@/trpc/client";
 import { ThemeProvider } from "./ThemeProvider";
 
 const compose = (providers: React.FC<{ children: React.ReactNode }>[]) =>
