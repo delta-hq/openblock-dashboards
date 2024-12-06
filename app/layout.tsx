@@ -6,7 +6,7 @@ import "./globals.css";
 import { Sidebar, SidebarHeader } from "@/components/ui/sidebar";
 import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
 import Link from "next/link";
-import { useOverview } from "./hooks/use-overview";
+import { overviewRequest } from "./hooks/use-overview";
 import { OverviewCard } from "@/components/ui/overview-card";
 
 const geistSans = localFont({
@@ -30,7 +30,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { data } = await useOverview();
+  const { data } = await overviewRequest();
   return (
     <html lang="en" suppressHydrationWarning className="light">
       <body

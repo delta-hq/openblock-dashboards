@@ -5,7 +5,7 @@ import {
 import { dashboardConfig, ConfigSchema } from "@/constants/user-config";
 import { trpc } from "@/trpc/server";
 
-export async function useOverview() {
+export async function overviewRequest() {
   const apiData = await trpc.overview();
   const [response] = apiData ?? [];
   const configData = ConfigSchema.parse(dashboardConfig);
