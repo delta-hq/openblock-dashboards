@@ -130,7 +130,7 @@ export const ConfigSchema = z.object({
   // tabs: z.array(TabSchema).optional(),
 });
 
-export const config = {
+export const dashboardConfig = {
   header: {
     icon: "https://cdn.prod.website-files.com/64053c5d931f167ecf5997be/6405771ffb64702144b3da4a_el-logo-p-500.png",
     title: "Eigenlayer",
