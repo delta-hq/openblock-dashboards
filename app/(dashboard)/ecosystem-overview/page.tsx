@@ -1,3 +1,9 @@
+import ChartContainer from "@/components/ui/chart-container";
+
 export default function EcosystemOverview() {
-  return <div>Ecosystem Overview</div>;
+  return (
+    <main>
+      <ChartContainer />
+    </main>
+  );
 }
