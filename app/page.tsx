@@ -12,7 +12,7 @@ export default async function Home() {
 
   void trpc.overview.prefetch();
 
-  const greeting = await trpc.hello({ text: "server" });
+  /* eslint-disable-next-line react-hooks/rules-of-hooks */
   const { data } = await useOverview();
 
   return (
