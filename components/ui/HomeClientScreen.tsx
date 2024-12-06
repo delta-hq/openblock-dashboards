@@ -2,6 +2,7 @@
 
 import React from "react";
 import { ModeToggle } from "./theme-toggle";
+import { OverviewCard } from "@/components/ui/overview-card";
 import Image from "next/image";
 import { trpc } from "../../providers/TRPCProvider";
 
@@ -9,6 +10,7 @@ export default function HomeClientScreen() {
   const [data] = trpc.hello.useSuspenseQuery({
     text: "client",
   });
+
   const greeting = trpc.hello.useQuery({
     text: "client",
   });
@@ -18,6 +20,9 @@ export default function HomeClientScreen() {
       <h1>Home</h1>
       <p>{JSON.stringify(greeting, null, 2)}</p>
       <p>{JSON.stringify(data, null, 2)}</p>
+      <div className="mb-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <OverviewCard />
+      </div>
       <ModeToggle />
       <main className="row-start-2 flex flex-col items-center gap-8 sm:items-start">
         <Image
