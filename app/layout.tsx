@@ -8,6 +8,13 @@ import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
 import Link from "next/link";
 import { overviewRequest } from "./hooks/use-overview";
 import { OverviewCard } from "@/components/ui/overview-card";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -51,6 +58,19 @@ export default async function RootLayout({
               </SidebarHeader>
             </Sidebar>
             <main className="flex-1 overflow-auto">
+              <Breadcrumb>
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink href="/">EigenLayer</BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <BreadcrumbLink href="/ecosystem-overview">
+                      Ecosystem Overview
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
               <Menubar>
                 <MenubarMenu>
                   <MenubarTrigger>
@@ -81,16 +101,6 @@ export default async function RootLayout({
                   </MenubarTrigger>
                 </MenubarMenu>
               </Menubar>
-              <div className="mb-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                {data.map((card) => (
-                  <OverviewCard key={card.title} title={card.title}>
-                    <div className="text-2xl font-bold">{card.metric}</div>
-                    <p className="text-xs text-green-400">
-                      +2.0% from last month
-                    </p>
-                  </OverviewCard>
-                ))}
-              </div>
               {children}
             </main>
           </div>
