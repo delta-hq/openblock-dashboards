@@ -4,6 +4,13 @@ import { ErrorBoundary } from "react-error-boundary";
 import HomeClientScreen from "../components/ui/HomeClientScreen";
 import { useOverview } from "./hooks/use-overview";
 import { OverviewCard } from "@/components/ui/overview-card";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 export default async function Home() {
   void trpc.hello.prefetch({
@@ -18,6 +25,18 @@ export default async function Home() {
   return (
     <HydrateClient>
       <ErrorBoundary fallback={<div>Something went wrong</div>}>
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">EigenLayer</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/components">Restaking</BreadcrumbLink>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+
         <div className="mb-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {data.map((card) => (
             <OverviewCard key={card.title} title={card.title}>
