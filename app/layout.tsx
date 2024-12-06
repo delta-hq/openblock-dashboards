@@ -15,6 +15,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { ModeToggle } from "@/components/ui/theme-toggle";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -58,6 +59,7 @@ export default async function RootLayout({
               </SidebarHeader>
             </Sidebar>
             <main className="flex-1 overflow-auto">
+              <ModeToggle />
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
