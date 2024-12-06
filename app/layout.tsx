@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import localFont from "next/font/local";
 import { Provider } from "@/providers/index";
 import "./globals.css";
-import { Sidebar } from "@/components/ui/sidebar";
+import { Sidebar, SidebarHeader } from "@/components/ui/sidebar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,7 +33,18 @@ export default function RootLayout({
       >
         <Provider>
           <div className="flex min-h-screen">
-            <Sidebar>{/* Sidebar content goes here */}</Sidebar>
+            <Sidebar>
+              <SidebarHeader>
+                <Image
+                  className="dark:invert"
+                  priority
+                  src="/openblocklabs-logo.svg"
+                  alt="OpenBlockLabs Logo"
+                  width={100}
+                  height={100}
+                />
+              </SidebarHeader>
+            </Sidebar>
             <main className="flex-1 overflow-auto">{children}</main>
           </div>
         </Provider>
