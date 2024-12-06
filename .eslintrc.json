@@ -3,13 +3,5 @@
     "next/core-web-vitals",
     "next/typescript",
     "plugin:storybook/recommended"
-  ],
-  "overrides": [
-    {
-      "files": ["./app/**/[[...route]]/route.ts"],
-      "rules": {
-        "@typescript-eslint/no-unused-vars": "off"
-      }
-    }
   ]
 }

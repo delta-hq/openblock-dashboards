@@ -12,8 +12,6 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@hono/node-server": "^1.13.7",
-    "@hono/zod-validator": "^0.4.1",
     "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-dropdown-menu": "^2.1.2",
     "@radix-ui/react-menubar": "^1.1.2",
@@ -33,7 +31,6 @@
     "client-only": "^0.0.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
-    "hono": "^4.6.12",
     "lucide-react": "^0.468.0",
     "next": "15.0.3",
     "next-themes": "^0.4.3",

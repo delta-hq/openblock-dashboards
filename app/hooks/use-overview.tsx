@@ -3,7 +3,6 @@ import {
   transformDataToCard,
 } from "@/transform/overview-transform";
 import { config, ConfigSchema } from "@/constants/user-config";
-import React from "react";
 import { trpc } from "@/trpc/server";
 
 export async function useOverview() {
