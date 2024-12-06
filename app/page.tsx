@@ -1,5 +1,3 @@
-// import type { AppType } from "./api/[[...route]]/route";
-// import { hc } from "hono/client";
 import { trpc, HydrateClient } from "@/trpc/server";
 import React, { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
@@ -10,7 +8,10 @@ export default async function Home() {
     text: "server",
   });
 
+  void trpc.overview.prefetch()
+
   const greeting = await trpc.hello({ text: "server" });
+  const overview = await trpc.overview();
 
   return (
     <HydrateClient>

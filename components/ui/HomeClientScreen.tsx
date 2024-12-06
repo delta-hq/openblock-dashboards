@@ -4,13 +4,10 @@ import React from "react";
 import { ModeToggle } from "./theme-toggle";
 import { OverviewCard } from "@/components/ui/overview-card";
 import Image from "next/image";
-import { trpc } from "../../providers/TRPCProvider";
+import { trpc } from "@/trpc/client";
 
 export default function HomeClientScreen() {
-  const [data] = trpc.hello.useSuspenseQuery({
-    text: "client",
-  });
-
+  const [data] = trpc.overview.useSuspenseQuery();
   const greeting = trpc.hello.useQuery({
     text: "client",
   });
